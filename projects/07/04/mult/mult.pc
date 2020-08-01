@@ -1,0 +1,14 @@
+sum = 0
+i = 1
+
+LOOP:
+    if i > R1 goto LOOP
+    sum = sum + R0
+    i = i + 1
+    goto LOOP
+
+STOP:
+    R2 = sum
+
+END
+    goto END

@@ -1,0 +1,16 @@
+LOOP:
+    addr = SCREEN
+    keyaddr = KBD
+    if key /= 0 goto FILL
+    
+CLEAN:
+    if addr = keyaddr goto LOOP
+    RAM[addr] = 0
+    addr = addr + 1
+    goto CLEAN
+
+FILL:
+    if addr = keyaddr goto LOOP
+    RAM[addr] = -1
+    addr = addr + 1
+    goto FILL

@@ -50,7 +50,8 @@ def assembler(par, symbols, code):
             else:
                 binary_code = "0" + "{:015b}".format(int(symbols.getAddress(sym)))
             binary_list.append(binary_code)
-        return binary_list
+
+    return binary_list
 
 def main():
 
@@ -59,7 +60,9 @@ def main():
         sys.exit()
 
     inputfile = sys.argv[1]
+    #inputfile = "Max.asm"
     outputfile = inputfile[:-3] + "hack"
+    #outputfile = "Max.hack"
 
     par = Parse(inputfile)
     code = CodeTrans()
