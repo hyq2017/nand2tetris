@@ -58,75 +58,6 @@ M=D
 0;JMP
 // set_retlabel
 (ret.1)
-// function Sys.init 0
-(Sys.init)
-// push constant 4
-@4
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// call Main.fibonacci 1
-// push_Label
-@Sys.init$ret.2
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// push_LCL
-@LCL
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// push_ARG
-@ARG
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// push_THIS
-@THIS
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// push_THAT
-@THAT
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// set_ARG
-@SP
-D=M
-@5
-D=D-A
-@1
-D=D-A
-@ARG
-M=D
-// ser_LCL
-@SP
-D=M
-@LCL
-M=D
-// goto_func
-@Main.fibonacci
-0;JMP
-// set_retlabel
-(Sys.init$ret.2)
-// label WHILE
-(Sys.init$WHILE)
-// goto WHILE
-@Sys.init$WHILE
-0;JMP
 // function Main.fibonacci 0
 (Main.fibonacci)
 // push argument 0
@@ -276,6 +207,84 @@ A=A-1
 M=M-D
 // call Main.fibonacci 1
 // push_Label
+@Main.fibonacci$ret.2
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// push_LCL
+@LCL
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// push_ARG
+@ARG
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// push_THIS
+@THIS
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// push_THAT
+@THAT
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// set_ARG
+@SP
+D=M
+@5
+D=D-A
+@1
+D=D-A
+@ARG
+M=D
+// ser_LCL
+@SP
+D=M
+@LCL
+M=D
+// goto_func
+@Main.fibonacci
+0;JMP
+// set_retlabel
+(Main.fibonacci$ret.2)
+// push argument 0
+@ARG
+D=M
+@0
+A=A+D
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// push constant 1
+@1
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// sub
+@SP
+AM=M-1
+D=M
+A=A-1
+M=M-D
+// call Main.fibonacci 1
+// push_Label
 @Main.fibonacci$ret.3
 D=A
 @SP
@@ -329,84 +338,6 @@ M=D
 0;JMP
 // set_retlabel
 (Main.fibonacci$ret.3)
-// push argument 0
-@ARG
-D=M
-@0
-A=A+D
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// push constant 1
-@1
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// sub
-@SP
-AM=M-1
-D=M
-A=A-1
-M=M-D
-// call Main.fibonacci 1
-// push_Label
-@Main.fibonacci$ret.4
-D=A
-@SP
-AM=M+1
-A=A-1
-M=D
-// push_LCL
-@LCL
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// push_ARG
-@ARG
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// push_THIS
-@THIS
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// push_THAT
-@THAT
-D=M
-@SP
-AM=M+1
-A=A-1
-M=D
-// set_ARG
-@SP
-D=M
-@5
-D=D-A
-@1
-D=D-A
-@ARG
-M=D
-// ser_LCL
-@SP
-D=M
-@LCL
-M=D
-// goto_func
-@Main.fibonacci
-0;JMP
-// set_retlabel
-(Main.fibonacci$ret.4)
 // add
 @SP
 AM=M-1
@@ -476,4 +407,73 @@ M=D
 // goto_retAddr
 @retAddr2
 A=M
+0;JMP
+// function Sys.init 0
+(Sys.init)
+// push constant 4
+@4
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// call Main.fibonacci 1
+// push_Label
+@Sys.init$ret.4
+D=A
+@SP
+AM=M+1
+A=A-1
+M=D
+// push_LCL
+@LCL
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// push_ARG
+@ARG
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// push_THIS
+@THIS
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// push_THAT
+@THAT
+D=M
+@SP
+AM=M+1
+A=A-1
+M=D
+// set_ARG
+@SP
+D=M
+@5
+D=D-A
+@1
+D=D-A
+@ARG
+M=D
+// ser_LCL
+@SP
+D=M
+@LCL
+M=D
+// goto_func
+@Main.fibonacci
+0;JMP
+// set_retlabel
+(Sys.init$ret.4)
+// label WHILE
+(Sys.init$WHILE)
+// goto WHILE
+@Sys.init$WHILE
 0;JMP

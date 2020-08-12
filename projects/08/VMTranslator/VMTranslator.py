@@ -34,31 +34,23 @@ def main():
     p=Path(sys.argv[1])
     ctabel = CmdTable()
     out_filename= p.stem
+    inputfile_list = {}
     if p.is_file():
-        inputfile = str(p)
-        in_filename=p.stem
         outputfile = str(p.parent / (out_filename + ".asm"))
-        fout = open(outputfile, mode='w')
-        cw = CodeWriter(fout, ctabel)
-        write_vm1(inputfile, in_filename, ctabel, cw)
-        fout.close()
+        inputfile_list[str(p)] = p.stem
     elif p.is_dir():
-        inputfile_list = {}
-        for pfile in p.glob('*.vm'):
-            if pfile.stem != "Sys":
-                inputfile_list[str(pfile)] = pfile.stem
-
-        in_filename = "Sys"
-        inputfile = p / (in_filename + ".vm")
         outputfile = p / (out_filename + ".asm")
+        for pfile in p.glob('*.vm'):
+            inputfile_list[str(pfile)] = pfile.stem
 
-        fout = open(outputfile, mode='w')
-        cw = CodeWriter(fout, ctabel)
+    fout = open(outputfile, mode='w')
+    cw = CodeWriter(fout, ctabel)
+    if p.is_dir():
         cw.writeBoot()
-        write_vm1(inputfile, in_filename, ctabel, cw)
-        for inf, infname in inputfile_list.items():
-            write_vm1(inf, infname, ctabel, cw)
-        fout.close()
+
+    for inf, infname in inputfile_list.items():
+        write_vm1(inf, infname, ctabel, cw)
+    fout.close()
 
     # debug: write line number 
     #newfile = p / (out_filename + ".txt")
